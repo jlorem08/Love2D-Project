@@ -95,3 +95,7 @@ end
 function Vector2:isZero()
     return self.X == 0 and self.Y == 0
 end
+
+function Vector2:angle()
+    return math.atan2(self.Y, self.X)
+end

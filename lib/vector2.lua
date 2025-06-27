@@ -113,3 +113,13 @@ function Vector2:angleTo(otherVector)
     local cosTheta = math.max(-1, math.min(1, dot / magProduct))
     return math.acos(cosTheta)
 end
+
+function Vector2:rotate(radians)
+    local cos = math.cos(radians)
+    local sin = math.sin(radians)
+
+    local x = self.X * cos - self.Y * sin
+    local y = self.X * sin + self.Y * cos
+
+    return Vector2.new(x, y)
+end

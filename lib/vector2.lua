@@ -48,3 +48,13 @@ end
 function Vector2:magnitudeSquared()
     return self.X^2 + self.Y^2
 end
+
+function Vector2:normalize()
+    local magnitude = Vector2:magnitude()
+
+    if magnitude == 0 then
+        return Vector2.new(0, 0, 0)
+    end
+
+    return Vector2.new(self.X/magnitude, self.Y/magnitude)
+end

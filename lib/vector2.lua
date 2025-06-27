@@ -74,3 +74,8 @@ end
 function Vector2:clone()
     return Vector2.new(self.X, self.Y)
 end
+
+function Vector2:set(x, y)
+    self.X = x
+    self.Y = y
+end

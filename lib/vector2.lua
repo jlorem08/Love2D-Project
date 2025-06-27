@@ -79,3 +79,7 @@ function Vector2:set(x, y)
     self.X = x
     self.Y = y
 end
+
+function Vector2:unpack()
+    return self.X, self.Y
+end

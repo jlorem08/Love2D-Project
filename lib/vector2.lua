@@ -152,3 +152,10 @@ function Vector2:reflect(normal)
     local dot = self:dot(normal)
     return self:Clone():sub(normal:clone():mul(2 * dot))
 end
+
+function Vector2:clamp(minVec, maxVec)
+    self.X = math.max(minVec.X, math.min(self.X, maxVec.X))
+    self.Y = math.max(minVec.Y, math.min(self.Y, maxVec.Y))
+
+    return self
+end

@@ -127,3 +127,14 @@ end
 function Vector2:perpendicular()
     return Vector2.new(-self.Y, self.X)
 end
+
+function Vector2:projectOn(otherVector)
+    local otherMagSquared = otherVector:magnitudeSquared()
+
+    if otherMagSquared == 0 then
+        return Vector2.new(0, 0)
+    end
+
+    local scalar = self:dot(otherVector) / otherMagSquared
+    return otherMagSquared:clone():mul(scalar)
+end

@@ -147,3 +147,8 @@ function Vector2:lerp(otherVector, t)
         self.Y + (otherVector.Y - self.Y) * t
     )
 end
+
+function Vector2:reflect(normal)
+    local dot = self:dot(normal)
+    return self:Clone():sub(normal:clone():mul(2 * dot))
+end

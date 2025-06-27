@@ -30,6 +30,10 @@ function Vector2.__sub(a, b)
 end
 
 function Vector2.__mul(a, b)
+    if getmetatable(a) == Vector2 and getmetatable(b) == Vector2 then
+        return Vector2.new(a.X * b.X, a.Y * b.Y)
+    end
+
     if type(a) == "number" then
         return Vector2.new(b.X * a, b.Y * a)
     elseif type(b) == "number" then
@@ -39,6 +43,10 @@ end
 
 function Vector2.__eq(a, b)
     return a.X == b.X and a.Y == b.Y
+end
+
+function Vector2.__unm(v)
+    return Vector2.new(-v.X, -v.Y)
 end
 
 ---------- METHODS ----------
@@ -158,7 +166,7 @@ function Vector2:projectOn(otherVector)
     end
 
     local scalar = self:dot(otherVector) / otherMagSquared
-    return otherMagSquared:clone():mul(scalar)
+    return otherVector:clone():mul(scalar)
 end
 
 function Vector2:lerp(otherVector, t)
@@ -172,7 +180,7 @@ end
 
 function Vector2:reflect(normal)
     local dot = self:dot(normal)
-    return self:Clone():sub(normal:clone():mul(2 * dot))
+    return self:clone():sub(normal:clone():mul(2 * dot))
 end
 
 function Vector2:clamp(minVec, maxVec)

@@ -63,3 +63,6 @@ function Vector2:dot(otherVector)
     return (self.X * otherVector.X) + (self.Y * otherVector.Y)
 end
 
+function Vector2:distanceTo(otherVector)
+    return math.sqrt((self.X - otherVector.X)^2 + (self.Y - otherVector.Y)^2)
+end

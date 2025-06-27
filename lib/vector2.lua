@@ -66,3 +66,7 @@ end
 function Vector2:distanceTo(otherVector)
     return math.sqrt((self.X - otherVector.X)^2 + (self.Y - otherVector.Y)^2)
 end
+
+function Vector2:equals(otherVector)
+    return self.X == otherVector.X and self.Y == otherVector.Y
+end

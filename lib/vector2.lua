@@ -17,7 +17,29 @@ end
 
 ---------- METAMETHODS ----------
 
+function Vector2:__tostring()
+    return string.format("Vector2(%.2f, %.2f)", self.X, self.Y)
+end
 
+function Vector2.__add(a, b)
+    return Vector2.new(a.X + b.X, a.Y + b.Y)
+end
+
+function Vector2.__sub(a, b)
+    return Vector2.new(a.X - b.X, a.Y - b.Y)
+end
+
+function Vector2.__mul(a, b)
+    if type(a) == "number" then
+        return Vector2.new(b.X * a, b.Y * a)
+    elseif type(b) == "number" then
+        return Vector2.new(a.X * b, a.Y * b)
+    end
+end
+
+function Vector2.__eq(a, b)
+    return a.X == b.X and a.Y == b.Y
+end
 
 ---------- METHODS ----------
 

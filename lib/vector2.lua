@@ -70,3 +70,7 @@ end
 function Vector2:equals(otherVector)
     return self.X == otherVector.X and self.Y == otherVector.Y
 end
+
+function Vector2:clone()
+    return Vector2.new(self.X, self.Y)
+end

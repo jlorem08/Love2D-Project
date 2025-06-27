@@ -37,5 +37,6 @@ function Vector2:mul(scalar)
 end
 
 function Vector2:div(scalar)
-
+    self.X = self.X / (scalar or 1)
+    self.Y = self.Y / (scalar or 1)
 end

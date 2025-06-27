@@ -123,3 +123,7 @@ function Vector2:rotate(radians)
 
     return Vector2.new(x, y)
 end
+
+function Vector2:perpendicular()
+    return Vector2.new(-self.Y, self.X)
+end

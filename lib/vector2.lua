@@ -27,7 +27,8 @@ function Vector2:add(otherVector)
 end
 
 function Vector2:sub(otherVector)
-    
+    self.X = self.X - otherVector.X
+    self.Y = self.Y - otherVector.Y
 end
 
 function Vector2:mul(scalar)

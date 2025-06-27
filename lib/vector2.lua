@@ -83,3 +83,7 @@ end
 function Vector2:unpack()
     return self.X, self.Y
 end
+
+function Vector2:isZero()
+    return self.X == 0 and self.Y == 0
+end

@@ -86,6 +86,8 @@ end
 function Vector2:set(x, y)
     self.X = x
     self.Y = y
+
+    return self
 end
 
 function Vector2:unpack()
@@ -99,3 +101,4 @@ end
 function Vector2:angle()
     return math.atan2(self.Y, self.X)
 end
+

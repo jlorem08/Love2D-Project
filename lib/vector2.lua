@@ -138,3 +138,12 @@ function Vector2:projectOn(otherVector)
     local scalar = self:dot(otherVector) / otherMagSquared
     return otherMagSquared:clone():mul(scalar)
 end
+
+function Vector2:lerp(otherVector, t)
+    t = math.max(0, math.min(1, t))
+
+    return Vector2.new(
+        self.X + (otherVector.X - self.X) * t,
+        self.Y + (otherVector.Y - self.Y) * t
+    )
+end

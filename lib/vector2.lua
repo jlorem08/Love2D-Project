@@ -7,7 +7,7 @@ Vector2.__index = Vector2
 
 -- creates a new vector2 object with given sidelengths (or zero)
 function Vector2.new(x, y)
-    local self = setmetatable({}, Vector3)
+    local self = setmetatable({}, Vector2)
 
     self.X = x or 0
     self.Y = y or 0
@@ -24,21 +24,29 @@ end
 function Vector2:add(otherVector)
     self.X = self.X + otherVector.X
     self.Y = self.Y + otherVector.Y
+
+    return self
 end
 
 function Vector2:sub(otherVector)
     self.X = self.X - otherVector.X
     self.Y = self.Y - otherVector.Y
+
+    return self
 end
 
 function Vector2:mul(scalar)
     self.X = self.X * (scalar or 1)
     self.Y = self.Y * (scalar or 1)
+
+    return self
 end
 
 function Vector2:div(scalar)
     self.X = self.X / (scalar or 1)
     self.Y = self.Y / (scalar or 1)
+
+    return self
 end
 
 function Vector2:magnitude()
@@ -50,10 +58,10 @@ function Vector2:magnitudeSquared()
 end
 
 function Vector2:normalize()
-    local magnitude = Vector2:magnitude()
+    local magnitude = self:magnitude()
 
     if magnitude == 0 then
-        return Vector2.new(0, 0, 0)
+        return Vector2.new(0, 0)
     end
 
     return Vector2.new(self.X/magnitude, self.Y/magnitude)

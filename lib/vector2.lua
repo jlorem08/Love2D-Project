@@ -58,3 +58,8 @@ function Vector2:normalize()
 
     return Vector2.new(self.X/magnitude, self.Y/magnitude)
 end
+
+function Vector2:dot(otherVector)
+    return (self.X * otherVector.X) + (self.Y * otherVector.Y)
+end
+

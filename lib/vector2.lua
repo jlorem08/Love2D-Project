@@ -44,3 +44,7 @@ end
 function Vector2:magnitude()
     return math.sqrt(self.X^2 + self.Y^2)
 end
+
+function Vector2:magnitudeSquared()
+    return self.X^2 + self.Y^2
+end

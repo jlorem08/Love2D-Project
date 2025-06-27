@@ -159,3 +159,24 @@ function Vector2:clamp(minVec, maxVec)
 
     return self
 end
+
+function Vector2:floor()
+    self.X = math.floor(self.X)
+    self.Y = math.floor(self.Y)
+
+    return self
+end
+
+function Vector2:ceil()
+    self.X = math.ceil(self.X)
+    self.Y = math.ceil(self.Y)
+
+    return self
+end
+
+function Vector2:round()
+    self.X = math.floor(self.X + 0.5)
+    self.Y = math.floor(self.Y + 0.5)
+    
+    return self
+end

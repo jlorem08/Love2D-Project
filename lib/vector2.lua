@@ -177,6 +177,10 @@ end
 function Vector2:round()
     self.X = math.floor(self.X + 0.5)
     self.Y = math.floor(self.Y + 0.5)
-    
+
     return self
 end
+
+---------- CLOSING ----------
+
+return Vector2

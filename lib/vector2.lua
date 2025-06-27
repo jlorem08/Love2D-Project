@@ -21,3 +21,19 @@ end
 
 ---------- METHODS ----------
 
+function Vector2:add(otherVector)
+    self.X = self.X + otherVector.X
+    self.Y = self.Y + otherVector.Y
+end
+
+function Vector2:sub(otherVector)
+    
+end
+
+function Vector2:mul(scalar)
+
+end
+
+function Vector2:div(scalar)
+
+end

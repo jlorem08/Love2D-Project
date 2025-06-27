@@ -42,6 +42,10 @@ function Vector3.__eq(a, b)
     return a.X == b.X and a.Y == b.Y and a.Z == b.Z
 end
 
+function Vector3.__unm(v)
+    return Vector3.new(-v.X, -v.Y, -v.Z)
+end
+
 ---------- METHODS ----------
 
 -- takes Vector3 argument and adds its side lengths to side lengths of self

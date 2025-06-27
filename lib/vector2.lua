@@ -102,3 +102,14 @@ function Vector2:angle()
     return math.atan2(self.Y, self.X)
 end
 
+function Vector2:angleTo(otherVector)
+    local dot = self:dot(otherVector)
+    local magProduct = self:magnitude() * otherVector:magnitude()
+
+    if magProduct == 0 then
+        return 0
+    end
+
+    local cosTheta = math.max(-1, math.min(1, dot / magProduct))
+    return math.acos(cosTheta)
+end

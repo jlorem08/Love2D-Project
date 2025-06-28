@@ -65,15 +65,21 @@ function Renderer:drawWireframe(triangle)
     love.graphics.line(sx3, sy3, sx1, sy1)
 end
 
-function Renderer:render()
+function Renderer:render(dt)
     local cam = self.scene.camera
     local view = cam:getViewMatrix()
     local projection = Mat4.perspective(math.rad(70), self.width / self.height, 0.1, 100)
 
     for _, obj in ipairs(self.scene.objects) do
-        local viewSpace = obj:transform(view)
-        local clipSpace = viewSpace:transform(projection)
-        self:drawWireframe(clipSpace)
+        obj.rotationY = obj.rotationY + dt -- update rotation
+
+        local model = Mat4.translation(0, 0, 5) * Mat4.rotationY(obj.rotationY)
+        local mvp = projection * view * model
+        local transformed = obj:transform(mvp)
+        
+        if transformed.v1.Z > 0 and transformed.v2.Z > 0 and transformed.v3.Z > 0 then
+            self:drawWireframe(transformed)
+        end
     end
 end
 

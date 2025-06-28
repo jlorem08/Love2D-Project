@@ -12,5 +12,5 @@ function love.update(dt) -- runs every frame before draw
 end
 
 function love.draw() -- runs every frame after update
-    renderer:render()
+    renderer:render(love.timer.getDelta())
 end

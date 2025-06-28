@@ -16,6 +16,8 @@ function Triangle.new(vertex1Vector, vertex2Vector, vertex3Vector)
     self.v2 = vertex2Vector
     self.v3 = vertex3Vector
 
+    self.rotation = 0
+
     return self
 end
 

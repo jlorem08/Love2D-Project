@@ -93,7 +93,7 @@ end
 
 ---------- METAMETHODS ----------
 
-function Mat4:__mul(a, b)
+function Mat4.__mul(a, b)
     if getmetatable(a) == Mat4 and getmetatable(b) == Mat4 then
         local matrixData = {}
 

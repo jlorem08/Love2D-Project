@@ -1,8 +1,8 @@
 ---------- IMPORTS ----------
 
-local Triangle = require("Renderer.Triangle")
-local Camera = require("Scene.Camera")
-local Scene = require("Scene.Scene")
+local Triangle = require("engine.Renderer.Triangle")
+local Camera = require("engine.Scene.Camera")
+local Scene = require("engine.Scene.Scene")
 local Mat4 = require("lib.Mat4")
 local Vector3 = require("lib.Vector3")
 
@@ -66,11 +66,11 @@ function Renderer:drawWireframe(triangle)
 end
 
 function Renderer:render()
-    local cam = self.scene:getCamera()
+    local cam = self.scene.camera
     local view = cam:getViewMatrix()
     local projection = Mat4.perspective(math.rad(70), self.width / self.height, 0.1, 100)
 
-    for _, obj in ipairs(self.scene:getObjects()) do
+    for _, obj in ipairs(self.scene.objects) do
         local viewSpace = obj:transform(view)
         local clipSpace = viewSpace:transform(projection)
         self:drawWireframe(clipSpace)

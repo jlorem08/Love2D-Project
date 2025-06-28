@@ -40,6 +40,42 @@ function Mat4.scale(x, y, z)
     })
 end
 
+function Mat4.rotationX(angle)
+    local c = math.cos(angle)
+    local s = math.sin(angle)
+
+    return Mat4.new({
+        1, 0, 0, 0,
+        0, c, -s, 0,
+        0, s, c, 0,
+        0, 0, 0, 1
+    })
+end
+
+function Mat4.rotationY(angle)
+    local c = math.cos(angle)
+    local s = math.sin(angle)
+
+    return Mat4.new({
+        c, 0, -s, 0,
+        0, 1, 0, 0,
+        s, 0, c, 0,
+        0, 0, 0, 1
+    })
+end
+
+function Mat4.rotationZ(angle)
+    local c = math.cos(angle)
+    local s = math.sin(angle)
+
+    return Mat4.new({
+        c, -s, 0, 0,
+        s, c, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
+    })
+end
+
 ---------- METAMETHODS ----------
 
 

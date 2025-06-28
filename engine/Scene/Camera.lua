@@ -32,11 +32,24 @@ end
 ---------- METHODS ----------
 
 function Camera:getViewMatrix()
-    
+    local zAxis = (self.position - self.target):normalize()
+    local xAxis = self.up:cross(zAxis):normalize()
+    local yAxis = zAxis:cross(xAxis)
+
+    local px = -xAxis:dot(self.position)
+    local py = -yAxis:dot(self.position)
+    local pz = -zAxis:dot(self.position)
+
+    return Mat4.new({
+        xAxis.X, yAxis.X, zAxis.X, 0,
+        xAxis.Y, yAxis.Y, zAxis.Y, 0,
+        xAxis.Z, yAxis.Z, zAxis.Z, 0,
+        px, py, pz, 1
+    })
 end
 
 function Camera:getProjectionMatrix()
-
+    return Mat4.perspective(self.fov, self.aspectRatio, self.near, self.far)
 end
 
 ---------- CLOSING ----------

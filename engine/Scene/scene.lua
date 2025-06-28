@@ -4,15 +4,17 @@ local Mat4 = require("lib.Mat4")
 
 ---------- SETUP ----------
 
-local Setup = {}
-Setup.__index = Setup
+local Scene = {}
+Scene.__index = Scene
 
 ---------- CONSTRUCTOR ----------
 
-function Setup.new(vertex1Vector, vertex2Vector, vertex3Vector)
-    local self = setmetatable({}, Setup)
+function Scene.new()
+    local self = setmetatable({}, Scene)
 
-    
+    self.objects = {}
+    self.camera = nil
+    self.lights = {}
 
     return self
 end
@@ -27,4 +29,4 @@ end
 
 ---------- CLOSING ----------
 
-return Setup
+return Scene

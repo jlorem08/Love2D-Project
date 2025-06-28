@@ -41,12 +41,6 @@ function Scene:update(dt)
     end
 end
 
-function Scene:render(renderer)
-    for _, obj in ipairs(self.objects) do
-        renderer:draw(obj, self.camera)
-    end
-end
-
 ---------- CLOSING ----------
 
 return Scene

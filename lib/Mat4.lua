@@ -21,6 +21,18 @@ function Mat4.new(data)
     return self
 end
 
+function Mat4.perspective(fov, aspect, near, far)
+    local f = 1 / math.tan(fov / 2)
+    local nf = 1 / (near - far)
+
+    return Mat4.new({
+        f / aspect, 0, 0, 0,
+        0, f, 0, 0,
+        0, 0, (far + near) * nf, 2 * far * near * nf,
+        0, 0, -1, 0,
+    })
+end
+
 function Mat4.identity()
     return Mat4.new()
 end

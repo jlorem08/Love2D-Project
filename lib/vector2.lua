@@ -129,7 +129,7 @@ function Vector2:isZero()
 end
 
 function Vector2:angle()
-    return math.atan2(self.Y, self.X)
+    return math.atan(self.Y, self.X)
 end
 
 function Vector2:angleTo(otherVector)

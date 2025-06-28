@@ -1,5 +1,5 @@
 ---------- IMPORTS ----------
-local Vector3 = require("Vector3")
+local Vector3 = require("lib.Vector3")
 
 ---------- SETUP ----------
 

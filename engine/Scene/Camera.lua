@@ -1,6 +1,6 @@
 ---------- IMPORTS ----------
 
-local Vector3 = require("Vector3")
+local Vector3 = require("lib.Vector3")
 local Mat4 = require("lib.Mat4")
 
 ---------- SETUP ----------
